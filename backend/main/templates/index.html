@@ -1,0 +1,18 @@
+<h1>GASTOS</h1>
+
+<!-- Recorremos todos los objetos pasados desde la vista en el context (variable expenses) -->
+{% for expense in expenses %}
+  <div>
+    <!-- Recorremos la variable mostrando cada campo -->
+    <h2>{{ expense.descripcion }}</h2>
+    <p>Límite: {{ expense.limite }}</p>
+    <p>Categoría: {{ expense.categoria }}</p>
+    <p>Fecha: {{ expense.fecha }}</p>
+  </div>
+{% endfor %}
+<!-- Comprobamos si la lista no está vacía, para hacer la suma de los gastos-->
+{% if expenses %}
+  <h2>Total Gastos: {{ total_expense }}</h2>
+{% else %}
+  <p>No hay gastos registrados.</p>
+{% endif %}
