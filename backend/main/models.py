@@ -15,7 +15,7 @@ class Expense(models.Model):
     fecha = models.DateTimeField(auto_created=True, verbose_name=_("Date"))
 
     ## Los choices son Arrays y funcionan como tuplas, valor guardado -> texto mostrado.
-    ## Funciona como formulario, solo se guardará un valor seleccionado
+    ## Funciona como un formulario, solo se guardará un valor seleccionado
     categoria = models.CharField(max_length=100, choices=[
         ('FOOD', 'Food'),
         ('TRAN', 'Transport'),
