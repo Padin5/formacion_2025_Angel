@@ -1,6 +1,8 @@
 # Importamos modelo expense creado anteriormente (igual que lo importamos en el Admin)
 from main.models import Expense
 
+from main.models import ExpenseLines
+
 
 # Consulta al ORM de Django, devuelve todos los objetos del modelo EXPENSE
 # Como hacer un select * from expense
@@ -11,3 +13,4 @@ def get_expenses():
     return expenses
 
 ## Esto lo invocamos desde una vista
+

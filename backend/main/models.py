@@ -38,3 +38,17 @@ class Expense(models.Model):
         return f"{self.descripcion} - {self.limite} - {self.fecha} - {self.categoria}"
 
 
+class ExpenseLines(models.Model) :
+    
+    ## Related_name para acceder a las cabeceras desde las líneas de gasto
+    gasto = models.ForeignKey(Expense, on_delete=models.CASCADE, related_name="linea", verbose_name=_("line"))
+    concepto = models.CharField(max_length=255, verbose_name=_("concept"))
+    cantidad = models.DecimalField(max_digits=10, decimal_places=2, verbose_name=_("cuantity"))
+    fecha = models.DateTimeField(auto_created=True, verbose_name=_("date"), null=True)
+
+    class Meta:
+        verbose_name = _("ExpenseLine")
+        verbose_name_plural = _("ExpenseLines")
+    
+    def __str__(self):
+        return f"{self.concepto} - {self.cantidad}"

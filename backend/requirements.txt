@@ -1,1 +1,4 @@
 django>=5.2.0,<6.0.0
+
+## API de Django, descargamos versión y a continuación hacemos pip para instalarla
+djangorestframework>=3.16.0,<3.17.0

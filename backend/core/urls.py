@@ -24,10 +24,18 @@ from django.urls import path
 ## Importamos la vista que queremos mostrar en el navegador
 from main.views import index
 
+# Importamos del archivo api la clase ViewSet
+from main.api import ExpenseViewSet
+
 ## Esta lista tiene todas las rutas que acepta el sitio web. Django las recorre hasta encontrar una coincidencia
 urlpatterns = [
     ## Al visitar admin, cargamos la interfaz de administración
     path("admin/", admin.site.urls),
     ## Ruta vacía a localhost, función que definimos en views, nombre identificador de la ruta
     path("", index, name="index"),
+
+    ## Definimos los métodos permitidos tanto en peticion get como post
+    path("api/gastos/", ExpenseViewSet.as_view({"get": "list", "post": "create"}), name="lista_gastos_api",),
+    # Definimos nuevamente los métodos permitidos en casa tipo de petición
+    path("api/gastos/<int:pk>/", ExpenseViewSet.as_view({"get": "retrieve", "put": "update", "delete": "destroy"}),name="gasto_api",),
 ]

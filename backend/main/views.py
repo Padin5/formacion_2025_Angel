@@ -10,8 +10,12 @@ def index(request):
 
     ## Llamamos a la función del controller
     expenses = get_expenses()
+
     ## Recorremos con un bucle for la función y accedemos a los gastos, y los sumamos con sum()
-    total = sum(e.limite for e in expenses)
+    ##total = sum(e.limite for e in expenses)
+    total = 0
+    for e in expenses :
+        total += e.limite
 
     ## El context es un diccionario que se pasa a la plantilla index.html
     ## expenses contiene todos los gastos
@@ -20,3 +24,4 @@ def index(request):
 
     ## Devolvemos el HTML de la plantilla index.html con los datos del context
     return render(request, "index.html", context)
+

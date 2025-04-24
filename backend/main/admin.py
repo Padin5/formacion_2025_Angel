@@ -4,6 +4,8 @@ from django.contrib import admin
 ## Importamos el modelo creado previamente
 from main.models import Expense
 
+from main.models import ExpenseLines
+
 ## Con esta clase podemos modificar la interfaz del admin. Hereda de admin.ModelAdmin
 class ExpenseAdmin(admin.ModelAdmin):
 
@@ -36,3 +38,11 @@ class ExpenseAdmin(admin.ModelAdmin):
 ## Registramos el modelo
 admin.site.register(Expense, ExpenseAdmin)
 
+
+class ExpenseLinesAdmin(admin.ModelAdmin): 
+
+    fields = ("gasto", "concepto", "cantidad", "fecha")
+    list_display = ("gasto", "concepto", "cantidad", "fecha")
+    list_editable = ("cantidad",)
+
+admin.site.register(ExpenseLines, ExpenseLinesAdmin) 
