@@ -1,4 +1,5 @@
 <h1>GASTOS</h1>
+<<<<<<< HEAD
 
 <!-- Recorremos todos los objetos pasados desde la vista en el context (variable expenses) -->
 {% for expense in expenses %}
@@ -11,8 +12,29 @@
   </div>
 {% endfor %}
 <!-- Comprobamos si la lista no está vacía, para hacer la suma de los gastos-->
+=======
+{% if user.is_authenticated %}
+  <h4>Hola {{ user.username }}! <a href="logout/">Logout</a></h4>
+{% else %}
+  <h4><a href="login/">Login</a></h4>
+{% endif %}
+
+{% for expense in expenses %}
+  <div>
+    <h2><a href="lines/{{ expense.id }}/">{{ expense.description }}</a></h2>
+    <p>Límite: {{ expense.limit }}</p>
+    <p>Categoría: {{ expense.category }}</p>
+    <p>Total Gastos: {{ expense.total }}</p>
+    <p>Fecha: {{ expense.date }}</p>
+  </div>
+{% endfor %}
+>>>>>>> bad32a02db6e9749226952f34a9a6794817cfe25
 {% if expenses %}
   <h2>Total Gastos: {{ total_expense }}</h2>
 {% else %}
   <p>No hay gastos registrados.</p>
+<<<<<<< HEAD
 {% endif %}
+=======
+{% endif %}
+>>>>>>> bad32a02db6e9749226952f34a9a6794817cfe25

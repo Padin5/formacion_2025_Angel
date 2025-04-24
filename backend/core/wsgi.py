@@ -4,13 +4,21 @@ WSGI config for core project.
 It exposes the WSGI callable as a module-level variable named ``application``.
 
 For more information on this file, see
+<<<<<<< HEAD
 https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
+=======
+https://docs.djangoproject.com/en/5.1/howto/deployment/wsgi/
+>>>>>>> bad32a02db6e9749226952f34a9a6794817cfe25
 """
 
 import os
 
 from django.core.wsgi import get_wsgi_application
 
+<<<<<<< HEAD
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'core.settings')
+=======
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "core.settings")
+>>>>>>> bad32a02db6e9749226952f34a9a6794817cfe25
 
 application = get_wsgi_application()

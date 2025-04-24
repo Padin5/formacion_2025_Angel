@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ## Funcion de Django que nos permite devolver una plantilla como respuesta
 from django.shortcuts import render
 
@@ -20,3 +21,33 @@ def index(request):
 
     ## Devolvemos el HTML de la plantilla index.html con los datos del context
     return render(request, "index.html", context)
+=======
+from django.shortcuts import render
+from main.controllers import get_expenses, get_lines
+from django.db.models import Sum
+
+
+def index(request):
+    """
+    View function for the index page.
+    """
+
+    user = request.user
+
+    expenses = get_expenses(user)
+
+    total_expense = expenses.aggregate(total_expense=Sum("total"))[
+        "total_expense"
+    ]
+
+    context = {"expenses": expenses, "total_expense": total_expense}
+
+    return render(request, "index.html", context)
+
+
+def lines(request, expense):
+    lines = get_lines(expense_pk=expense)
+    context = {"lines": lines}
+
+    return render(request, "lines.html", context)
+>>>>>>> bad32a02db6e9749226952f34a9a6794817cfe25
